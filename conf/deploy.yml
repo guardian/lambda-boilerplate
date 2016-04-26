@@ -1,0 +1,33 @@
+defaultStacks:
+    - cms-fronts
+packages:
+    static:
+        type: aws-s3
+        data:
+            bucket: lambda-boilerplate-dist
+            cacheControl: "public, max-age=315360000"
+            prefixPackage: false
+            prefixStack: false
+            prefixStage: true
+            publicReadAcl: false
+    lambda:
+        type: aws-lambda
+        data:
+            functions:
+                CODE:
+                    name: lambda-boilerplate
+                    filename: artifact.zip
+                PROD:
+                    name: lambda-boilerplate
+                    filename: artifact.zip
+recipes:
+    upload:
+        actionsBeforeApp:
+            - static.uploadStaticFiles
+    lambda:
+        actionsBeforeApp:
+            - lambda.updateLambda
+    default:
+        depends:
+            - upload
+            - lambda
