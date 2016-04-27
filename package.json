@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "test": "gulp test",
+    "test": "tap test",
     "deploy": "gulp deploy"
   },
   "devDependencies": {
@@ -21,7 +21,8 @@
     "rollup": "^0.26.0",
     "rollup-plugin-babel": "^2.4.0",
     "rollup-plugin-commonjs": "^2.2.1",
-    "rollup-plugin-node-resolve": "^1.5.0"
+    "rollup-plugin-node-resolve": "^1.5.0",
+    "tap": "^5.7.1"
   },
   "peerDependencies": {
     "aws-sdk": "2.x"

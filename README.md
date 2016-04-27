@@ -1,6 +1,6 @@
 Boilerplate for creating a new lambda deployable in RiffRaff
 
-* Notice: * This is my opinionated<sup>*</sup> way of doing it, you might not like it
+**Notice:** This is my opinionated<sup>*1</sup> way of doing it, you might not like it
 
 ### Create a new lambda
 
@@ -30,12 +30,15 @@ gulp cfn archive
    * `Off` to `Limit concurrent jobs`
    * `Off` to `Build pull requests`
 * Create AWS keys with S3 write access to the buckets used by RiffRaff.
+* Remove `env.global.secure` from `.travis.yml`
 * Run
 
 ```
-travis encrypt --add AWS_ACCESS_KEY_ID=your_key
-travis encrypt --add AWS_SECRET_ACCESS_KEY-your_secret
+travis encrypt AWS_ACCESS_KEY_ID=your_key --add
+travis encrypt AWS_SECRET_ACCESS_KEY=your_secret --add
 ```
+
+* Commit and push, it should run your first build in Travis and upload the artifact in RiffRaff
 
 ### Deploy in RiffRaff
 
