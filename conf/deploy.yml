@@ -15,10 +15,10 @@ packages:
         data:
             functions:
                 CODE:
-                    name: lambda-boilerplate
+                    name: lambda-bolierplate-Lambda-1UMSS8O6QFXA
                     filename: artifact.zip
                 PROD:
-                    name: lambda-boilerplate
+                    name: lambda-bolierplate-Lambda-1UMSS8O6QFXA
                     filename: artifact.zip
 recipes:
     upload:
