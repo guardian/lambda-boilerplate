@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "test": "tap test",
+    "test": "gulp compile && tap test",
     "deploy": "gulp deploy"
   },
   "devDependencies": {

@@ -40,6 +40,29 @@ travis encrypt AWS_SECRET_ACCESS_KEY=your_secret --add
 
 * Commit and push, it should run your first build in Travis and upload the artifact in RiffRaff
 
+
 ### Deploy in RiffRaff
 
-*
+* If your build is successful, you should be able to use RiffRaff just like any other deploy.
+
+
+### Unit tests
+
+I like using this style of dependency injection in lambda:
+
+```js
+const s3instance = AWS.S3();
+
+export default function handler (events, context, callback) {
+	handleEvents({events, callback, s3: s3instance});
+}
+
+export function handleEvents ({events, callback, s3}) {
+	// do your things
+}
+```
+
+You can create your actual instances outside the handler, but your handler method is simply forwarding everything to `handleEvents`. In your test files you can call directly `handleEvents` with all your mocks / stubs/ spies.
+
+* `npm test` to run your tests once.
+* `nodemon --exec 'npm test' --ignore tmp` to watch your files and run tests on save.
