@@ -64,7 +64,13 @@ gulp.task('archive', ['compile', 'riffraff-deploy'], function () {
 		.pipe(gulp.dest('tmp/riffraff/packages/static'));
 });
 
-gulp.task('deploy', ['archive'], function (cb) {
+gulp.task('package', ['archive'], function () {
+	return gulp.src('tmp/riffraff/**/*')
+		.pipe(zip('artifacts.zip'))
+		.pipe(gulp.dest('tmp/'));
+});
+
+gulp.task('deploy', ['package'], function (cb) {
 	riffraff.settings.leadDir = path.join(__dirname, 'tmp/');
 
 	riffraff.s3Upload().then(function () {
