@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Boilerplate",
   "private": true,
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
     "test": "gulp compile && tap test",
