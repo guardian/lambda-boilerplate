@@ -1,8 +1,8 @@
 const tap = require('tap');
-const lambda = require('../tmp/lambda/index');
+const lambda = require('../tmp/lambda/index').default;
 
 tap.test('Function name', test => {
-	lambda.handleEvents({
+	lambda({
 		events: [],
 		context: {
 			functionName: 'test-lambda'
