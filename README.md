@@ -38,6 +38,8 @@ travis encrypt AWS_ACCESS_KEY_ID=your_key --add
 travis encrypt AWS_SECRET_ACCESS_KEY=your_secret --add
 ```
 
+* Adjust the values of `package.json`. You want to update at least `name`, `projectName` and `description`.
+
 * Commit and push, it should run your first build in Travis and upload the artifact in RiffRaff
 
 
