@@ -6,7 +6,9 @@ export default {
 	entry: 'src/index.js',
 	plugins: [
 		babel(),
-		nodeResolve(),
+		nodeResolve({
+			jsnext: true
+		}),
 		commonjs()
 	],
 	format: 'cjs',

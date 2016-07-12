@@ -2,18 +2,34 @@ const tap = require('tap');
 const lambda = require('../tmp/lambda/index').default;
 
 tap.test('Function name', test => {
-	lambda({
-		events: [],
-		context: {
-			functionName: 'test-lambda'
+	test.plan(1);
+
+	return lambda({
+		events: {
+			ok: true
 		},
-		AWS: {
-			version: 'mock'
-		},
-		callback: (err, success) => {
-			test.ifError(err);
-			test.equal(success.name, 'test-lambda');
-			test.end();
+		aws: {
+			version: '3'
 		}
+	})
+	.then(result => {
+		test.deepEqual(result, {
+			ok: true,
+			version: '3'
+		});
+	});
+});
+
+tap.test('Error case', test => {
+	test.plan(2);
+
+	return lambda({
+		events: {
+			ok: false
+		}
+	})
+	.catch(error => {
+		test.type(error, Error);
+		test.match(error.message, /not ok/i);
 	});
 });
