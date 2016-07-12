@@ -8,7 +8,7 @@
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
-    "pretest": "gulp lint",
+    "posttest": "gulp lint",
     "test": "gulp compile && tap test",
     "deploy": "gulp deploy"
   },
