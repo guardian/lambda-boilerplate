@@ -29,7 +29,7 @@ gulp cfn archive
    * `On` to `Build pushes`
    * `Off` to `Limit concurrent jobs`
    * `Off` to `Build pull requests`
-* Create AWS keys with S3 write access to the buckets used by RiffRaff.
+* Create AWS keys with S3 write access to the buckets used by RiffRaff. Make sure the permission is as tightly scoped as possible.
 * Remove `env.global.secure` from `.travis.yml`
 * Run
 
