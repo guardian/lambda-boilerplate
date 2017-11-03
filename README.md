@@ -1,3 +1,10 @@
+# **THIS REPO IS NO LONGER MAINTAINED**
+If you use it, note it uses an unsupported riff-raff deploy file.
+
+Please use [this repo](https://github.com/guardian/fulfilment-node-stub-lambda) for a more up to date boilerpate.
+
+___________________________________________________________
+
 Boilerplate for creating a new lambda deployable in RiffRaff
 
 **Notice:** This is my opinionated<sup>*1</sup> way of doing it, you might not like it
